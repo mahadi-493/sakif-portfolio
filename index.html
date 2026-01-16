@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.M. Riadul Zannat Sakif - Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a', // Slate 900
+                        secondary: '#0d9488', // Teal 600
+                        accent: '#f8fafc', // Slate 50
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-bar-fill {
+            width: 0%;
+            transition: width 1.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-secondary selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-2xl font-bold text-primary tracking-tight">S.M. Sakif<span class="text-secondary">.</span></a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-secondary transition-colors">About</a>
+                    <a href="#experience" class="text-sm font-medium text-slate-600 hover:text-secondary transition-colors">Experience</a>
+                    <a href="#skills" class="text-sm font-medium text-slate-600 hover:text-secondary transition-colors">Skills</a>
+                    <a href="#projects" class="text-sm font-medium text-slate-600 hover:text-secondary transition-colors">Projects</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-primary text-white text-sm font-semibold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">Contact Me</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1 shadow-lg">
+                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-secondary hover:bg-slate-50">About</a>
+                <a href="#experience" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-secondary hover:bg-slate-50">Experience</a>
+                <a href="#skills" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-secondary hover:bg-slate-50">Skills</a>
+                <a href="#projects" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-secondary hover:bg-slate-50">Projects</a>
+                <a href="#contact" class="block px-3 py-3 rounded-md text-base font-medium text-secondary font-bold">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1 fade-in-up">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-secondary/30 bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wide mb-6">
+                        Marketing & Merchandising
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary leading-tight mb-6">
+                        S.M. Riadul <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-teal-400">Zannat Sakif</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed">
+                        Merchandising & Marketing Executive specializing in knitwear product development, global sourcing, and cross-functional team leadership.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="inline-flex justify-center items-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-lg text-white bg-secondary hover:bg-teal-700 transition-all shadow-lg hover:shadow-teal-500/30">
+                            Get in Touch
+                        </a>
+                        <button onclick="window.print()" class="inline-flex justify-center items-center px-8 py-3.5 border border-slate-300 text-base font-semibold rounded-lg text-slate-700 bg-white hover:bg-slate-50 transition-all shadow-sm">
+                            <i class="fas fa-file-pdf mr-2"></i> Save Resume
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2 flex justify-center lg:justify-end fade-in-up delay-100">
+                    <div class="relative w-72 h-72 md:w-96 md:h-96">
+                        <div class="absolute inset-0 bg-secondary/20 rounded-full blur-3xl opacity-50 animate-pulse"></div>
+                        <div class="relative w-full h-full rounded-full border-4 border-white shadow-2xl overflow-hidden bg-slate-200 flex items-center justify-center">
+                            <!-- Placeholder for actual image if user wants to swap -->
+                            <i class="fas fa-user-tie text-9xl text-slate-300"></i> 
+                            <!-- Note: If the actual image file is available in the directory, change src to that file -->
+                            <!-- <img src="./image_302c28.png" alt="Profile" class="w-full h-full object-cover"> -->
+                        </div>
+                        
+                        <!-- Floating Badges -->
+                        <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                            <div class="bg-blue-100 p-2 rounded-full text-blue-600">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold">Specialization</p>
+                                <p class="text-sm font-bold text-primary">Knitwear</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute top-0 -right-4 bg-white p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce" style="animation-duration: 4s;">
+                            <div class="bg-green-100 p-2 rounded-full text-green-600">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold">Sourcing</p>
+                                <p class="text-sm font-bold text-primary">Global</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Professional Summary</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm fade-in-up">
+                <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                    I am a dedicated Merchandising & Marketing Executive with a proven track record in knitwear product development and global sourcing. My expertise lies in managing the full product lifecycle, from initial sample development to final shipment, ensuring strict adherence to Time & Action (T&A) calendars.
+                </p>
+                <p class="text-slate-600 leading-relaxed text-lg">
+                    I possess strong skills in liaising with high-profile buyers, such as <strong class="text-primary">Next Sourcing</strong>, and coordinating cross-functional teams to deliver compliant, high-quality products. I am currently seeking a challenging role in merchandising or category management to leverage my skills in negotiation, research, and strategy.
+                </p>
+                
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-200">
+                    <div class="text-center">
+                        <span class="block text-2xl font-bold text-secondary mb-1">B.Sc.</span>
+                        <span class="text-sm text-slate-500 font-medium">Textile Engineering (NITER)</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-2xl font-bold text-secondary mb-1">3+</span>
+                        <span class="text-sm text-slate-500 font-medium">Languages Spoken</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-2xl font-bold text-secondary mb-1">2+</span>
+                        <span class="text-sm text-slate-500 font-medium">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Work Experience</h2>
+                <p class="text-slate-500">My professional journey in the textile industry</p>
+            </div>
+
+            <div class="relative space-y-12">
+                <!-- Vertical Line -->
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 -ml-0.5 hidden md:block"></div>
+
+                <!-- Job 1 -->
+                <div class="relative md:grid md:grid-cols-2 md:gap-8 items-start fade-in-up">
+                    <div class="md:text-right mb-4 md:mb-0">
+                        <h3 class="text-xl font-bold text-primary">Executive of Marketing & Merchandising</h3>
+                        <p class="text-secondary font-semibold">Aman Knittings Limited (Unifill Group)</p>
+                        <p class="text-sm text-slate-500 mt-1"><i class="far fa-calendar-alt mr-1"></i> 2024 - Present</p>
+                    </div>
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 -mt-1 hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-secondary border-4 border-white shadow-md">
+                        <div class="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 relative ml-8 md:ml-0">
+                        <!-- Mobile marker -->
+                        <div class="absolute -left-10 top-6 w-4 h-4 rounded-full bg-secondary border-2 border-white md:hidden"></div>
+                        <ul class="space-y-2 text-slate-600 text-sm list-disc list-inside">
+                            <li>Managing "Next Sourcing" product line, detailing designs, worksheets, and colorways.</li>
+                            <li>Reviewing spec sheets and tech-packs; coordinating with designers for sample creation.</li>
+                            <li>Verifying yarn composition and booking with nominated suppliers.</li>
+                            <li>Setting ETD for samples and notifying buyers.</li>
+                            <li>Evaluating lab dips and accessories; obtaining buyer approvals.</li>
+                            <li>Overseeing development in sample room and addressing buyer comments.</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <!-- Job 2 -->
+                <div class="relative md:grid md:grid-cols-2 md:gap-8 items-start fade-in-up">
+                    <div class="md:order-2 mb-4 md:mb-0">
+                        <h3 class="text-xl font-bold text-primary">Jr. Executive
+</h3>
+                        <p class="text-secondary font-semibold">Aman Knittings Limited (Unifill Group)</p>
+                        <p class="text-sm text-slate-500 mt-1"><i class="far fa-calendar-alt mr-1"></i> September , 2024 - September , 2025                     </p>
+                    </div>
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 -mt-1 hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-slate-300 border-4 border-white shadow-md">
+                        <div class="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <div class="md:order-1 md:text-right bg-transparent p-6 rounded-xl shadow-sm border border-slate-100 relative ml-8 md:ml-0 ">
+                        <div class="absolute -left-10 top-6 w-4 h-4 rounded-full bg-slate-300 border-2 border-white md:hidden"></div>
+                        
+                    </div>
+                </div>
+                
+                <!-- Job 3 -->
+                <div class="relative md:grid md:grid-cols-2 md:gap-8 items-start fade-in-up">
+                    <div class="md:order-2 mb-4 md:mb-0">
+                        <h3 class="text-xl font-bold text-primary">Management Trainee Officer</h3>
+                        <p class="text-secondary font-semibold">Aman Knittings Limited (Unifill Group)</p>
+                        <p class="text-sm text-slate-500 mt-1"><i class="far fa-calendar-alt mr-1"></i> September , 2023 - September , 2024                          </p>
+                    </div>
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 -mt-1 hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-slate-300 border-4 border-white shadow-md">
+                        <div class="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <div class="md:order-1 md:text-right bg-transparent p-6 rounded-xl shadow-sm border border-slate-100 relative ml-8 md:ml-0">
+                        <div class="absolute -left-10 top-6 w-4 h-4 rounded-full bg-slate-300 border-2 border-white md:hidden"></div>
+                        
+                    </div>
+                </div>
+                
+                
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Skills & Proficiency</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <!-- Technical Skills -->
+                <div class="fade-in-up delay-100">
+                    <h3 class="text-2xl font-bold text-primary mb-8 flex items-center">
+                        <i class="fas fa-laptop-code text-secondary mr-3"></i> Technical Skills
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl hover:border-secondary hover:shadow-md transition-all flex items-center gap-4 group">
+                            <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-blue-600 shadow-sm group-hover:scale-110 transition-transform">
+                                <i class="fas fa-file-word text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-700">MS Office</h4>
+                                <p class="text-xs text-slate-500">Word, Excel, PPT</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl hover:border-secondary hover:shadow-md transition-all flex items-center gap-4 group">
+                            <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-secondary shadow-sm group-hover:scale-110 transition-transform">
+                                <i class="fas fa-network-wired text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-700">ERP Systems</h4>
+                                <p class="text-xs text-slate-500">Management</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl hover:border-secondary hover:shadow-md transition-all flex items-center gap-4 group">
+                            <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-indigo-500 shadow-sm group-hover:scale-110 transition-transform">
+                                <i class="fas fa-image text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-700">Photoshop</h4>
+                                <p class="text-xs text-slate-500">Editing & Design</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl hover:border-secondary hover:shadow-md transition-all flex items-center gap-4 group">
+                            <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-sky-600 shadow-sm group-hover:scale-110 transition-transform">
+                                <i class="fas fa-envelope-open-text text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-700">Communication</h4>
+                                <p class="text-xs text-slate-500">Outlook, Mail</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Skills -->
+                <div class="fade-in-up delay-200">
+                    <h3 class="text-2xl font-bold text-primary mb-8 flex items-center">
+                        <i class="fas fa-user-check text-secondary mr-3"></i> Personal Skills
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-3 bg-slate-50 border border-slate-200 rounded-full text-slate-700 font-medium hover:bg-secondary hover:text-white hover:border-transparent transition-all cursor-default shadow-sm">Product Knowledge</span>
+                        <span class="px-5 py-3 bg-slate-50 border border-slate-200 rounded-full text-slate-700 font-medium hover:bg-secondary hover:text-white hover:border-transparent transition-all cursor-default shadow-sm">Teamwork</span>
+                        <span class="px-5 py-3 bg-slate-50 border border-slate-200 rounded-full text-slate-700 font-medium hover:bg-secondary hover:text-white hover:border-transparent transition-all cursor-default shadow-sm">Decision Making</span>
+                        <span class="px-5 py-3 bg-slate-50 border border-slate-200 rounded-full text-slate-700 font-medium hover:bg-secondary hover:text-white hover:border-transparent transition-all cursor-default shadow-sm">Public Speaking</span>
+                        <span class="px-5 py-3 bg-slate-50 border border-slate-200 rounded-full text-slate-700 font-medium hover:bg-secondary hover:text-white hover:border-transparent transition-all cursor-default shadow-sm">Negotiation</span>
+                        <span class="px-5 py-3 bg-slate-50 border border-slate-200 rounded-full text-slate-700 font-medium hover:bg-secondary hover:text-white hover:border-transparent transition-all cursor-default shadow-sm">Research & Strategy</span>
+                        <span class="px-5 py-3 bg-slate-50 border border-slate-200 rounded-full text-slate-700 font-medium hover:bg-secondary hover:text-white hover:border-transparent transition-all cursor-default shadow-sm">T&A Maintenance</span>
+                        <span class="px-5 py-3 bg-slate-50 border border-slate-200 rounded-full text-slate-700 font-medium hover:bg-secondary hover:text-white hover:border-transparent transition-all cursor-default shadow-sm">Analytical Skill</span>
+                        <span class="px-5 py-3 bg-slate-50 border border-slate-200 rounded-full text-slate-700 font-medium hover:bg-secondary hover:text-white hover:border-transparent transition-all cursor-default shadow-sm">Creativity</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlights: Achievements & Languages (New Prominent Section) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-slate-100 fade-in-up delay-300">
+                
+                <!-- Achievements Highlight -->
+                <div class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-8 text-white relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-trophy text-9xl"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-6 flex items-center text-amber-400">
+                            <i class="fas fa-award mr-3"></i> Key Achievements
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="flex gap-4 items-start">
+                                <div class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0 text-amber-400 border border-amber-500/30">
+                                    <i class="fas fa-star text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Textile Talent Hunt</h4>
+                                    <p class="text-slate-300 text-sm">Recognized by Textile Today (2022)</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0 text-amber-400 border border-amber-500/30">
+                                    <i class="fas fa-certificate text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Academic Excellence</h4>
+                                    <p class="text-slate-300 text-sm">Scholarship recipient in J.S.C & S.S.C exams</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages Highlight -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm relative overflow-hidden hover:border-secondary transition-colors group">
+                    <div class="absolute -bottom-4 -right-4 p-8 opacity-5">
+                        <i class="fas fa-language text-9xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                        <i class="fas fa-globe-asia text-secondary mr-3"></i> Languages
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 relative z-10">
+                        <!-- English -->
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 text-center hover:bg-secondary hover:text-white transition-all group/lang">
+                            <div class="text-3xl mb-2 group-hover/lang:scale-110 transition-transform">🇬🇧</div>
+                            <h4 class="font-bold mb-1">English</h4>
+                            <p class="text-xs opacity-70">Full Professional</p>
+                        </div>
+                        
+                        <!-- Bengali -->
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 text-center hover:bg-secondary hover:text-white transition-all group/lang">
+                            <div class="text-3xl mb-2 group-hover/lang:scale-110 transition-transform">🇧🇩</div>
+                            <h4 class="font-bold mb-1">Bengali</h4>
+                            <p class="text-xs opacity-70">Native / Bilingual</p>
+                        </div>
+
+                        <!-- Hindi -->
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 text-center hover:bg-secondary hover:text-white transition-all group/lang">
+                            <div class="text-3xl mb-2 group-hover/lang:scale-110 transition-transform">🇮🇳</div>
+                            <h4 class="font-bold mb-1">Hindi</h4>
+                            <p class="text-xs opacity-70">Full Professional</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Unified Projects Section (Undergraduate + Personal) -->
+    <section id="projects" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-secondary font-bold tracking-wider uppercase text-xs">Portfolio</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mt-2 mb-4">Projects & Research</h2>
+                <p class="text-slate-400">A collection of my academic research and personal initiatives</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Thesis Project 1 -->
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-secondary transition-colors group fade-in-up">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-slate-700 rounded-lg group-hover:bg-secondary/20 group-hover:text-secondary transition-colors">
+                            <i class="fas fa-microscope text-xl"></i>
+                        </div>
+                        <span class="text-xs font-semibold bg-slate-700 px-2 py-1 rounded text-slate-300">Undergrad Thesis</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-secondary transition-colors">Nano Synthesis of Natural Cellulose Fiber</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Focused on synthesizing nano-cellulose from natural fibers. The process involved treating fiber with aqueous sodium hydroxide to remove hemicellulose/lignin, resulting in high-quality cellulose for innovative applications.
+                    </p>
+                </div>
+
+                <!-- Thesis Project 2 -->
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-secondary transition-colors group fade-in-up delay-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-slate-700 rounded-lg group-hover:bg-secondary/20 group-hover:text-secondary transition-colors">
+                            <i class="fas fa-flask text-xl"></i>
+                        </div>
+                        <span class="text-xs font-semibold bg-slate-700 px-2 py-1 rounded text-slate-300">Undergrad Thesis</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-secondary transition-colors">Low Temperature Polyester Dyeing</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Innovative approach to reduce dyeing temp from 130°C to 70°C. This method cuts energy costs while maintaining excellent color fastness, offering a sustainable solution for factories.
+                    </p>
+                </div>
+
+                <!-- Personal Project 1 -->
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-secondary transition-colors group fade-in-up delay-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-slate-700 rounded-lg group-hover:bg-secondary/20 group-hover:text-secondary transition-colors">
+                            <i class="fas fa-industry text-xl"></i>
+                        </div>
+                        <span class="text-xs font-semibold bg-slate-700 px-2 py-1 rounded text-slate-300">Internship</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-secondary transition-colors">Beximco Industrial Park</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        <strong>Jul 2022 - Sep 2022</strong><br>
+                        Gained comprehensive industrial exposure in one of the largest textile conglomerates, understanding large-scale production and management.
+                    </p>
+                </div>
+
+                <!-- Personal Project 2 -->
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-secondary transition-colors group fade-in-up">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-slate-700 rounded-lg group-hover:bg-secondary/20 group-hover:text-secondary transition-colors">
+                            <i class="fas fa-chart-line text-xl"></i>
+                        </div>
+                        <span class="text-xs font-semibold bg-slate-700 px-2 py-1 rounded text-slate-300">Certification</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-secondary transition-colors">Six-Sigma Management</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        <strong>May 2022 - Jun 2022</strong> (NITER)<br>
+                        Studied process improvement methodologies to reduce defects and improve quality in manufacturing cycles.
+                    </p>
+                </div>
+
+                <!-- Personal Project 3 -->
+                <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-secondary transition-colors group fade-in-up delay-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-slate-700 rounded-lg group-hover:bg-secondary/20 group-hover:text-secondary transition-colors">
+                            <i class="fas fa-bullhorn text-xl"></i>
+                        </div>
+                        <span class="text-xs font-semibold bg-slate-700 px-2 py-1 rounded text-slate-300">Certification</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-secondary transition-colors">Digital Marketing</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        <strong>Apr 2021 - May 2021</strong> (Textile Today)<br>
+                        Acquired skills in digital branding and marketing strategies relevant to the textile and fashion industry.
+                    </p>
+                </div>
+
+                 <!-- Extra Curricular Card -->
+                 <div class="bg-gradient-to-br from-secondary to-teal-800 rounded-xl p-6 border border-transparent shadow-lg fade-in-up delay-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-white/20 rounded-lg text-white">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <span class="text-xs font-semibold bg-white/20 px-2 py-1 rounded text-white">Leadership</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Extra Curricular</h3>
+                    <ul class="text-slate-100 text-sm space-y-2">
+                        <li>• Executive Member, NITER Career Club</li>
+                        <li>• Executive Member, NITER Games & Sports</li>
+                        <li>• Executive Member, "Mastul" Career Club</li>
+                        <li>• Event Organizer for NITER programs</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-20 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/3 fade-in-up">
+                    <h2 class="text-3xl font-serif font-bold text-primary mb-4">Education</h2>
+                    <p class="text-slate-600">My academic foundation in textile engineering.</p>
+                </div>
+                <div class="md:w-2/3 space-y-6 fade-in-up delay-100">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div>
+                            <h3 class="text-lg font-bold text-primary">B.Sc. in Textile Engineering</h3>
+                            <p class="text-slate-500 text-sm">National Institute of Textile Engineering and Research (NITER)</p>
+                            <p class="text-slate-400 text-xs mt-1">Major: Wet Processing Engineering</p>
+                        </div>
+                        <div class="mt-2 sm:mt-0 text-right">
+                            <span class="inline-block px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold">2018 - 2023</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div>
+                            <h3 class="text-lg font-bold text-primary">Higher Secondary Certificate (H.S.C)</h3>
+                            <p class="text-slate-500 text-sm">Govt. Bangla College, Mirpur, Dhaka</p>
+                        </div>
+                        <div class="mt-2 sm:mt-0 text-right">
+                            <span class="inline-block px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold">2015 - 2017</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-12 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Get In Touch</h2>
+                <p class="text-slate-600">Feel free to reach out for collaborations or opportunities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow fade-in-up">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-xl mx-auto mb-4">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-primary mb-2">Phone</h3>
+                    <p class="text-slate-500 text-sm hover:text-secondary"><a href="tel:+8801624188366">+880-1624188366</a></p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow fade-in-up delay-100">
+                    <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-teal-600 text-xl mx-auto mb-4">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="font-bold text-primary mb-2">Email</h3>
+                    <p class="text-slate-500 text-sm hover:text-secondary break-all"><a href="mailto:smsakif.niter@gmail.com">smsakif.niter@gmail.com</a></p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow fade-in-up delay-200">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 text-xl mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-primary mb-2">Location</h3>
+                    <p class="text-slate-500 text-sm">Savar, Dhaka, Bangladesh</p>
+                </div>
+            </div>
+
+            <!-- Simple Contact Form (Frontend Only) -->
+            <form class="max-w-xl mx-auto space-y-4 fade-in-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all">
+                    <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all">
+                </div>
+                <input type="text" placeholder="Subject" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all">
+                <textarea rows="4" placeholder="Message" class="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all"></textarea>
+                <button type="button" class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-slate-800 transition-colors shadow-lg">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h2 class="text-2xl font-serif font-bold text-white mb-2">S.M. Sakif</h2>
+                <p class="text-sm">Merchandising & Marketing Executive</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-secondary transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="#" class="hover:text-secondary transition-colors"><i class="fab fa-github text-xl"></i></a>
+                <a href="#" class="hover:text-secondary transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+            </div>
+            <div class="text-sm text-center md:text-right">
+                <p>&copy; 2026 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Trigger Skill Bars if within the skills section
+                    const skillBars = entry.target.querySelectorAll('.skill-bar-fill');
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width;
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Sticky Navbar Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('py-4', 'py-2');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('py-2', 'py-4');
+            }
+        });
+    </script>
+</body>
+</html>
